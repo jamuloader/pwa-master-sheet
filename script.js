@@ -1,4 +1,4 @@
-const URL_APPS_SCRIPT = "MASUKKAN_URL_EXEC_APPS_SCRIPT_ANDA_DI_SINI";
+const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzJ_iTzR8YmanvCU6lQJ8RwwyE8kpkjVUaTHpmsIm8Xs0UNhF3GUNY9h1ofP8TPQKXoDA/exec";
 
 let PIN = localStorage.getItem("pin") || "";
 let currentPage = 1;
