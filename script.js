@@ -1,4 +1,4 @@
-const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbzJ_iTzR8YmanvCU6lQJ8RwwyE8kpkjVUaTHpmsIm8Xs0UNhF3GUNY9h1ofP8TPQKXoDA/exec";
+const URL_APPS_SCRIPT = "https://script.google.com/macros/s/AKfycbxqyb5Bvkj2POUUrMhZzXW1uVD-qq580ND0L78xN1ah4NIgCezcqRSHT1mW710w93eriw/exec";
 
 let PIN = localStorage.getItem("pin") || "";
 let currentPage = 1;
