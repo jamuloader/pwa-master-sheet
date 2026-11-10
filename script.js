@@ -6,12 +6,26 @@ let currentPage = 1;
 // Fungsi pengganti google.script.run menggunakan fetch
 async function callApi(payload) {
   const data = Object.assign({ pin: PIN }, payload);
+  
   try {
     const response = await fetch(URL_APPS_SCRIPT, {
       method: "POST",
+      // KUNCI UTAMA: Gunakan text/plain agar browser tidak mengirim preflight request
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8" 
+      },
+      // Kirim data sebagai string JSON
       body: JSON.stringify(data)
     });
-    return await response.json();
+    
+    const text = await response.text();
+    try {
+      return JSON.parse(text);
+    } catch (e) {
+      console.error("Respons Google:", text);
+      return { ok: false, error: "Format respons server salah. Pastikan akses Deploy = Anyone." };
+    }
+
   } catch (err) {
     return { ok: false, error: "Gagal terhubung ke server. Periksa koneksi internet." };
   }
