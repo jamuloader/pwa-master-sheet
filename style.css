@@ -1,0 +1,130 @@
+* { box-sizing: border-box; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #f1f5f9;
+}
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+  padding: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+header h1 { font-size: 20px; margin: 0; }
+.card { background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,.08); margin-bottom:12px; }
+.center { text-align:center; max-width:360px; margin:40px auto; }
+.muted { color:#64748b; font-size:14px; }
+.error { color:#dc2626; font-size:14px; min-height:18px; }
+.msg { font-size:14px; min-height:18px; margin-top:8px; }
+.msg.ok { color:#16a34a; }
+.msg.err { color:#dc2626; }
+
+input, select {
+  width:100%; padding:10px; border:1px solid #cbd5e1; border-radius:8px;
+  font-size:16px; margin-bottom:10px; background:#fff; /* font-size 16px mencegah auto-zoom di iPhone */
+}
+label { font-size:13px; font-weight:600; color:#334155; display:block; margin-bottom:4px; }
+button {
+  padding:10px 14px; border-radius:8px; border:none; font-size:15px;
+  cursor:pointer; font-weight:600;
+}
+.primary { background:#2563eb; color:#fff; width:100%; }
+.primary:hover { background:#1d4ed8; }
+.ghost { background:#e2e8f0; color:#0f172a; }
+.ghost:hover { background:#cbd5e1; }
+.small { padding:6px 10px; font-size:13px; }
+
+.tabs { display:flex; gap:6px; margin-bottom:12px; }
+.tab { flex:1; background:#e2e8f0; color:#0f172a; }
+.tab.active { background:#2563eb; color:#fff; }
+
+/* ===== RESPONSIVE TABLE (MODE CARD UNTUK HP) ===== */
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+
+@media (max-width: 600px) {
+  /* Sembunyikan header tabel di HP */
+  thead { display: none; }
+  
+  /* Ubah baris tabel menjadi card */
+  tr { 
+    display: block; 
+    margin-bottom: 12px; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 8px; 
+    padding: 12px;
+  }
+  
+  /* Ubah cell menjadi block */
+  td { 
+    display: block; 
+    border: none; 
+    padding: 4px 0; 
+    text-align: left;
+  }
+  
+  /* Sembunyikan nomor urut di HP */
+  td:nth-child(1) { display: none; }
+  
+  /* Label otomatis sebelum isi data */
+  td:nth-child(2)::before { content: "Email: "; font-weight: 600; color: #475569; }
+  td:nth-child(2) { font-weight: 600; word-break: break-all; }
+  
+  td:nth-child(3)::before { content: "Status: "; font-weight: 600; color: #475569; }
+  
+  /* Spreadsheet ID: tampil sebagai teks kecil terpotong */
+  td:nth-child(4) { 
+    font-size: 12px; 
+    color: #94a3b8; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: 100%;
+  }
+  td:nth-child(4)::before { content: "ID: "; }
+  
+  /* Tombol aksi sejajar */
+  td.actions { 
+    display: flex; 
+    gap: 8px; 
+    margin-top: 8px; 
+    padding-top: 8px;
+    border-top: 1px dashed #e2e8f0;
+  }
+  td.actions button { flex: 1; padding: 8px; }
+}
+
+/* Tabel versi Desktop */
+@media (min-width: 601px) {
+  th, td { padding:10px; border-bottom:1px solid #e2e8f0; text-align:left; }
+  th { background:#f8fafc; font-size:12px; text-transform:uppercase; color:#475569; }
+  td.actions { white-space:nowrap; }
+  td.actions button { padding:6px 10px; font-size:12px; margin-right:4px; }
+  
+  /* Potong ID jika kepanjangan di desktop */
+  td:nth-child(4) {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #64748b;
+  }
+}
+
+.btn-edit { background:#f59e0b; color:#fff; }
+.btn-del  { background:#dc2626; color:#fff; }
+.badge { padding:2px 8px; border-radius:999px; font-size:12px; font-weight:600; display:inline-block; }
+.badge.active { background:#dcfce7; color:#166534; }
+.badge.non { background:#fee2e2; color:#991b1b; }
+
+.pagination { display:flex; justify-content:space-between; align-items:center; margin-top:12px; }
+
+.modal { position:fixed; inset:0; background:rgba(0,0,0,.5); display:flex; align-items:center; justify-content:center; padding:16px; z-index:50; }
+.modal-box { background:#fff; border-radius:12px; padding:16px; width:100%; max-width:360px; }
+.row { display:flex; gap:8px; }
+.row button { flex:1; }

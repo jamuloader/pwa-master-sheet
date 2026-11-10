@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Clients Manager</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="loginView" class="card center">
+    <h2>🔐 Masuk</h2>
+    <p class="muted">Masukkan PIN untuk melanjutkan</p>
+    <input id="pinInput" type="password" inputmode="numeric" placeholder="PIN" />
+    <button id="loginBtn" class="primary">Masuk</button>
+    <p id="loginMsg" class="error"></p>
+  </div>
+
+  <!-- APP -->
+  <div id="appView" style="display:none">
+    <header>
+      <h1>Clients Manager</h1>
+      <button id="logoutBtn" class="ghost small">Keluar</button>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="input">➕ Input</button>
+      <button class="tab" data-tab="list">📋 List</button>
+    </nav>
+
+    <section id="tab-input" class="tab-panel card">
+      <h2>Tambah Client</h2>
+      <label>Email</label>
+      <input id="addEmail" type="email" placeholder="nama@email.com" />
+      <label>Status</label>
+      <select id="addStatus">
+        <option value="active">active</option>
+        <option value="non active">non active</option>
+      </select>
+      <button id="addBtn" class="primary">Simpan</button>
+      <p id="addMsg" class="msg"></p>
+    </section>
+
+    <section id="tab-list" class="tab-panel card" style="display:none">
+      <h2>Daftar Client</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Email</th><th>Status</th><th>Spreadsheet ID</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="prevBtn" class="ghost small">‹ Prev</button>
+        <span id="pageInfo" class="muted"></span>
+        <button id="nextBtn" class="ghost small">Next ›</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- MODAL EDIT -->
+  <div id="editModal" class="modal" style="display:none">
+    <div class="modal-box">
+      <h3>Edit Client</h3>
+      <label>Email</label>
+      <input id="editEmail" type="email" />
+      <label>Status</label>
+      <select id="editStatus">
+        <option value="active">active</option>
+        <option value="non active">non active</option>
+      </select>
+      <p id="editMsg" class="msg"></p>
+      <div class="row">
+        <button id="editCancel" class="ghost">Batal</button>
+        <button id="editSave" class="primary">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
